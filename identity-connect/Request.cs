@@ -8,6 +8,7 @@ using identity_connect.Expansions;
 using identity_connect.Exceptions;
 using identity_connect.Models.Response;
 using identity_connect.Interfaces;
+using identity_connect.SystemResourses;
 
 namespace identity_connect.Http
 {
@@ -37,7 +38,7 @@ namespace identity_connect.Http
                     StringContent httpConent = new StringContent(body, Encoding.UTF8, "application/json");
 
                     if (!String.IsNullOrEmpty(token))
-                        httpClient.DefaultRequestHeaders.Add("Token", token);
+                        httpClient.DefaultRequestHeaders.Add(Naming.HEADERS_TOKEN, token);
                     responseMessage = await httpClient.PostAsync(url, httpConent);
 
                     var json = await responseMessage.Content.ReadAsStringAsync();
