@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <RootNamespace>identity_connect</RootNamespace>
+    <Version>1.2.7</Version>
+    <AssemblyVersion>1.2.7.0</AssemblyVersion>
+    <FileVersion>1.2.7.0</FileVersion>
+    <Description>Its module for identity requests and autentification user. And request userInfo-requests.
+</Description>
+    <Authors>QviNSteN</Authors>
+    <Company>uMark.it</Company>
+    <Copyright>(c) qvinsten</Copyright>
+    <PackageReleaseNotes>Moved "Permissions" verification methods to extensions. Removed "Permissions" class. Added global title resources. Added the mandatory "Permissions" attribute.</PackageReleaseNotes>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Models\Input\**" />
+    <EmbeddedResource Remove="Models\Input\**" />
+    <None Remove="Models\Input\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.2.0" />
+    <PackageReference Include="Npgsql" Version="5.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="EF\" />
+  </ItemGroup>
+
+</Project>
