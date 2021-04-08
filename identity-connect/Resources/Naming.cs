@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace identity_connect.SystemResourses
+namespace identity_connect.Resources
 {
     public static class Naming
     {
-        public static string CLAIM_EXTERNAL_ID => "externalId";
+        public static string CLAIM_SERVICE_EXTERNAL_ID => "externalId";
 
         public static string CLAIM_SERVICE_NAME => "name";
 

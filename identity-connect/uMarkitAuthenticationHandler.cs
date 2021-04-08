@@ -10,7 +10,7 @@ using identity_connect.Models.Request;
 using identity_connect.Configurations;
 using identity_connect.Expansions;
 using identity_connect.Models.Auth;
-using identity_connect.SystemResourses;
+using identity_connect.Resources;
 
 namespace identity_connect.Authentication
 {
@@ -92,7 +92,7 @@ namespace identity_connect.Authentication
                 var authInfo = auth as ServiceAuthReturn;
 
                 var claims = new List<Claim>();
-                claims.Add(new Claim(Naming.CLAIM_EXTERNAL_ID, authInfo.ExternalId));
+                claims.Add(new Claim(Naming.CLAIM_SERVICE_EXTERNAL_ID, authInfo.ExternalId));
                 claims.Add(new Claim(Naming.CLAIM_SERVICE_NAME, authInfo.Name));
                 return AuthenticateResult.Success(GetTicket(claims));
             }

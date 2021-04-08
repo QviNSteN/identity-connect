@@ -8,7 +8,7 @@ using identity_connect.Expansions;
 using identity_connect.Exceptions;
 using identity_connect.Models.Response;
 using identity_connect.Interfaces;
-using identity_connect.SystemResourses;
+using identity_connect.Resources;
 
 namespace identity_connect.Http
 {

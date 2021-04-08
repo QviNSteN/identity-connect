@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Security.Claims;
 using identity_connect;
-using identity_connect.SystemResourses;
+using identity_connect.Resources;
 
 namespace identity_connect.Expansions
 {
@@ -37,7 +37,7 @@ namespace identity_connect.Expansions
 
         public static string GetServiceExternalId(this ClaimsPrincipal service)
         {
-            var id = service.Claims.SingleOrDefault(x => x.Type == Naming.CLAIM_EXTERNAL_ID);
+            var id = service.Claims.SingleOrDefault(x => x.Type == Naming.CLAIM_SERVICE_EXTERNAL_ID);
             if (id is null || String.IsNullOrEmpty(id.Value))
                 return null;
 
@@ -45,7 +45,7 @@ namespace identity_connect.Expansions
         }
 
         public static bool IsAllowed(this ClaimsPrincipal user, string permission) =>
-            user.Permissions()?.Any(x => permission.Check(x.Value) == 1) == true;
+            user.Permissions()?.Any(x => permission.Check(x.Value) > -1) == true;
 
         private static IEnumerable<Claim> Permissions(this ClaimsPrincipal user) =>
             user.Claims.Where(x => x.Type == Naming.CLAIM_PERMISSION);
